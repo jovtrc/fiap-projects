@@ -1,0 +1,19 @@
+{
+  "name": "fiap-lives-projects",
+  "version": "1.0.0",
+  "description": "Repositório com os projetos apresentados aos alunos da FIAP",
+  "main": "index.js",
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev"
+  },
+  "author": "João Carvalho",
+  "license": "MIT",
+  "devDependencies": {
+    "turbo": "^2.2.3"
+  },
+  "workspaces": [
+    "frontend/lives/*"
+  ],
+  "packageManager": "npm@8.5.0"
+}
