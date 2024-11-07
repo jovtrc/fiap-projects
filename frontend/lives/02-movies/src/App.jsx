@@ -4,7 +4,7 @@ import Movie from "./components/Movie.jsx";
 import Separator from "./components/Separator.jsx";
 import Headlines from "./components/Headlines.jsx";
 
-import heartIcon from "../public/heart.svg"
+import heartIcon from "./img/heart.svg?url"
 import moviesList from "./movies.json"
 
 function App() {
