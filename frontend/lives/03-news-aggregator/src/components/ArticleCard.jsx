@@ -1,13 +1,14 @@
-import { IoArrowRedo } from "react-icons/io5";
-import { IoBookmarks } from "react-icons/io5";
-import { IoTrashBin } from "react-icons/io5";
+import { IoArrowRedo, IoBookmarks, IoTrashBin } from "react-icons/io5";
+import RoundedButton from "./RoundedButton.jsx";
 
 export default function ArticleCard({id, layout}) {
-    const imageClasses = layout !== "small" ? "size-32" : "size-20"
-    const titleClasses = layout !== "small" ? "text-lg mb-1" : "text-base line-clamp-1"
-    const descClasses = layout !== "small" ? "text-sm line-clamp-3" : "text-xs line-clamp-2"
-    const ButtonIcon = layout !== "small" ? IoBookmarks : IoTrashBin
-    const buttonClasses = "group absolute -top-2 rounded-full size-7 flex items-center justify-center cursor-pointer"
+    const imageClasses = layout !== "small" ? "size-32" : "w-20 h-24";
+    const titleClasses = layout !== "small" ? "text-lg mb-1 line-clamp-1" : "text-base line-clamp-1";
+    const descClasses = layout !== "small" ? "text-sm line-clamp-3" : "text-xs line-clamp-2 mb-1";
+    const metaClasses = layout !== "small" ? "" : "flex-col";
+    const ButtonIcon = layout !== "small" ? IoBookmarks : IoTrashBin;
+    const saveButtonColor = layout !== "small" ? "bg-blue-700" : "bg-red-700";
+    const saveButtonText  = layout !== "small" ? "Salvar" : "Excluir";
 
     return (
         <a href="#" className="border rounded p-4 flex gap-4 bg-neutral-100 hover:bg-neutral-200 relative">
@@ -27,29 +28,19 @@ export default function ArticleCard({id, layout}) {
                     officia, praesentium quidem quod repudiandae sint sit soluta ut veritatis.
                 </p>
 
-                <div className="flex justify-between text-xs mt-auto">
+                <div className={"flex justify-between text-xs mt-auto " + metaClasses}>
                     <p><span className="font-semibold">Fonte:</span> ESPN</p>
                     <p><span className="font-semibold">Categoria:</span> Sports</p>
                 </div>
             </div>
 
-            <button className={"bg-blue-700 right-7 " + buttonClasses}>
+            <RoundedButton className={"right-7 group absolute " + saveButtonColor} tooltip={saveButtonText}>
                 <ButtonIcon className="size-3" color="#fff"/>
-                <TooltipText text="Salvar"/>
-            </button>
+            </RoundedButton>
 
-            <button className={"bg-emerald-700 -right-1 " + buttonClasses}>
+            <RoundedButton className="bg-emerald-700 -right-1 group absolute" tooltip="Ler">
                 <IoArrowRedo className="size-3" color="#fff"/>
-                <TooltipText text="Ler"/>
-            </button>
+            </RoundedButton>
         </a>
-    )
-}
-
-function TooltipText({text}) {
-    return (
-        <span className="absolute -top-9 opacity-0 group-hover:opacity-100 transition-opacity text-xs max-w-24 left-1/2 -translate-x-1/2 bg-neutral-700 text-white rounded p-2 z-10">
-            {text}
-        </span>
     )
 }
