@@ -1,8 +1,8 @@
-export default function RoundedButton({ className, children, tooltip }) {
+export default function RoundedButton({ className, children, tooltip, ...props }) {
     const buttonClasses = "-top-2 rounded-full size-7 flex items-center justify-center cursor-pointer"
 
     return (
-        <button className={`${className} ${buttonClasses}`}>
+        <button className={`${className} ${buttonClasses}`} {...props}>
             {children}
 
             {tooltip &&
